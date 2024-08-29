@@ -212,51 +212,26 @@
         border: 2px solid white;
         cursor: pointer;
       }
-      /* Style the dropdown menu */
       #musicDropdown {
         position: fixed;
         bottom: 20px;
         right: 20px;
         background-color: #ff004c;
-        border: 2px solid #d44147;
-        border-radius: 8px;
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
         color: white;
         font-size: 16px;
-        padding: 10px;
         cursor: pointer;
         z-index: 100;
-        font-family: "Ubuntu", sans-serif;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        appearance: none; /* Removes default styling */
       }
 
-      /* Style the dropdown arrow */
-      #musicDropdown::-ms-expand {
-        display: none; /* Hide default arrow for IE */
-      }
-
-      /* Custom arrow for the dropdown */
-      #musicDropdown::after {
-        content: "▼"; /* Unicode character for down arrow */
-        position: absolute;
-        top: 50%;
-        right: 15px;
-        transform: translateY(-50%);
-        font-size: 16px;
-        color: white;
-      }
-
-      /* Style options inside the dropdown */
-      #musicDropdown option {
+      #musicDropdown select {
         background-color: #ff004c;
         color: white;
-      }
-
-      /* Optional: Style for the dropdown when focused */
-      #musicDropdown:focus {
-        border-color: #d44147;
-        outline: none;
-        box-shadow: 0 0 0 2px rgba(255, 0, 76, 0.3);
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -286,42 +261,43 @@
       </div>
     </div>
 
-    <!-- Dropdown menu for selecting songs -->
-    <select id="musicDropdown" onchange="playSelectedSong()">
-      <option value="" disabled selected>Pilih Lagu</option>
-      <option value="lagu1.mp3">Batas Senja - Nanti Kita Seperti Ini</option>
-      <option value="lagu2.mp3">Bernadya - Apa Mungkin</option>
-      <option value="lagu3.mp3">Bernadya - Kata Mereka Ini Berlebihan</option>
-      <option value="lagu4.mp3">Bernadya - Kini Mereka Tahu</option>
-      <option value="lagu5.mp3">Bernadya - Satu Bulan</option>
-      <option value="lagu6.mp3">Donne Maula - Bercinta Lewat Kata</option>
-      <option value="lagu7.mp3">Donne Maula - Daur Hidup</option>
-      <option value="lagu8.mp3">Rio Satrio - Senja, Diaksara Bintang</option>
-      <option value="lagu9.mp3">Sal Priadi - Gala Bunga Matahari</option>
-      <option value="lagu10.mp3">Sal Priadi - Kita Usahakan Rumah Itu</option>
-      <option value="lagu11.mp3">Feast - Nina</option>
-      <option value="lagu12.mp3">Nadhif Basalamah - Penjaga Hati</option>
-      <option value="lagu13.mp3">Misellia - Akhir Tak Bahagia</option>
-      <option value="lagu14.mp3">Mighfar Suganda - Gemuruh Riuh</option>
-      <option value="lagu15.mp3">Lomba Sihir - Semua Orang Pernah Sakit Hati</option>
-      <option value="lagu16.mp3">Juicy Luicy - Lantas</option>
-      <option value="lagu17.mp3">Idgitaf - Hal Indah Butuh Waktu Untuk Datang</option>
-      <option value="lagu18.mp3">Idgitaf - Mengudara</option>
-      <option value="lagu19.mp3">Idgitaf - SatuSatu</option>
-      <option value="lagu20.mp3">Idgitaf - Sekuat Sesakit</option>
-      <option value="lagu21.mp3">Idgitaf - Takut</option>
-      <option value="lagu22.mp3">Idgitaf - Terpikat Senyummu</option>
-      <option value="lagu23.mp3">Rizky Febian Feat. Mahalini - Bermuara</option>
-      <option value="lagu24.mp3">Daun Jatuh - Sekedar Mengagumi</option>
-      <option value="lagu25.mp3">Daun Jatuh - Tak Apa feat Nosstress</option>
-      <option value="lagu26.mp3">Nosstress - Lagu Kebun</option>
-      <option value="lagu27.mp3">Nosstress - Tunjukkan Cintamu</option>
-      <option value="lagu28.mp3">Nosstress - Istirahat</option>
-      <option value="lagu29.mp3">Nosstress - Semoga Ya</option>
-    </select>
+    <div id="musicDropdown">
+      <select onchange="gantiLagu(this.value)">
+        <option value="" selected disabled>Pilih Lagu</option>
+        <option value="0">Batas Senja - Nanti Kita Seperti Ini</option>
+        <option value="1">Bernadya - Apa Mungkin</option>
+        <option value="2">Bernadya - Kata Mereka Ini Berlebihan</option>
+        <option value="3">Bernadya - Kini Mereka Tahu</option>
+        <option value="4">Bernadya - Satu Bulan</option>
+        <option value="5">Donne Maula - Bercinta Lewat Kata</option>
+        <option value="6">Donne Maula - Daur Hidup</option>
+        <option value="7">Rio Satrio - Senja, Diaksara Bintang</option>
+        <option value="8">Sal Priadi - Gala Bunga Matahari</option>
+        <option value="9">Sal Priadi - Kita Usahakan Rumah Itu</option>
+        <option value="10">Feast - Nina</option>
+        <option value="11">Nadhif Basalamah - Penjaga Hati</option>
+        <option value="12">Misellia - Akhir Tak Bahagia</option>
+        <option value="13">Mighfar Suganda - Gemuruh Riuh</option>
+        <option value="14">Lomba Sihir - Semua Orang Pernah Sakit Hati</option>
+        <option value="15">Juicy Luicy - Lantas</option>
+        <option value="16">Idgitaf - Hal Indah Butuh Waktu Untuk Datang</option>
+        <option value="17">Idgitaf - Mengudara</option>
+        <option value="18">Idgitaf - SatuSatu</option>
+        <option value="19">Idgitaf - Sekuat Sesakit</option>
+        <option value="20">Idgitaf - Takut</option>
+        <option value="21">Idgitaf - Terpikat Senyummu</option>
+        <option value="22">Rizky Febian Feat. Mahalini - Bermuara</option>
+        <option value="23">Daun Jatuh - Sekedar Mengagumi</option>
+        <option value="24">Daun Jatuh - Tak Apa feat Nosstress</option>
+        <option value="25">Nosstress - Lagu Kebun</option>
+        <option value="26">Nosstress - Tunjukkan Cintamu</option>
+        <option value="27">Nosstress - Istirahat</option>
+        <option value="28">Nosstress - Semoga Ya</option>
+      </select>
+    </div>
 
-    <!-- Audio element remains unchanged -->
-    <audio id="audioElement" autoplay type="audio/mp3" class="audio"></audio>
+    <!-- Audio elemen tetap ada di sini -->
+    <audio autoplay type="audio/mp3" class="audio"></audio>
 
     <script>
       var musik = "musik.mp3";
@@ -417,20 +393,48 @@
 
       setPesanBerdasarkanWaktu(); // Set pesan saat dimuat
 
-      // Select the dropdown menu and audio element
-      const musicDropdown = document.getElementById("musicDropdown");
-      const audioElement = document.getElementById("audioElement");
+      // Daftar lagu yang ingin kamu masukkan
+      const daftarLagu = [
+        "lagu1.mp3",
+        "lagu2.mp3",
+        "lagu3.mp3",
+        "lagu4.mp3",
+        "lagu5.mp3",
+        "lagu6.mp3",
+        "lagu7.mp3",
+        "lagu8.mp3",
+        "lagu9.mp3",
+        "lagu10.mp3",
+        "lagu11.mp3",
+        "lagu12.mp3",
+        "lagu13.mp3",
+        "lagu14.mp3",
+        "lagu15.mp3",
+        "lagu16.mp3",
+        "lagu17.mp3",
+        "lagu18.mp3",
+        "lagu19.mp3",
+        "lagu20.mp3",
+        "lagu21.mp3",
+        "lagu22.mp3",
+        "lagu23.mp3",
+        "lagu24.mp3",
+        "lagu25.mp3",
+        "lagu26.mp3",
+        "lagu27.mp3",
+        "lagu28.mp3",
+        "lagu29.mp3",
+      ];
 
-      function playSelectedSong() {
-        const selectedSong = musicDropdown.value;
-        if (selectedSong) {
-          audioElement.src = selectedSong;
-          audioElement.play();
-        }
+      const audioElement = document.querySelector(".audio");
+
+      function gantiLagu(index) {
+        audioElement.src = daftarLagu[index];
+        audioElement.play();
       }
 
-      // Set the initial song when the page loads
-      audioElement.src = "";
+      // Set lagu awal saat halaman pertama kali dimuat
+      audioElement.src = daftarLagu[0];
     </script>
   </body>
 </html>
